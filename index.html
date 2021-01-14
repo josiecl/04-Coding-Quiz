@@ -13,10 +13,11 @@
     <!-- Header containing both link to high scores and the timer -->
     <header class="container-fluid">
         <div class="row">
-            <div class="col-sm-11">
-                <span id="scoreboard">High Scores</span>
+            <div class="col-sm-2">
+                <a href="scoreboard.html" id="scoreboard">High Scores</a>
             </div>
-            <div class="col-sm-1">
+            <div class="col-sm-8"></div>
+            <div class="col-sm-2">
                 <span id="timer">Time left:</span>
             </div>
         </div>
@@ -26,17 +27,29 @@
 
     <main class="container">
 
-        <section id="intro">
-            <div class="row">
-                <div class="cos-sm-12"><h1>Dog Breed Quiz</h1></div>    
+        <div class="row">
+            <div class="col-sm-3"></div>
+
+            <section id="intro" class="col-sm-6">
+            <!-- <div class="row"> -->
+                <!-- <div class="col-sm-3"></div> -->
+                <div><h1>Dog Breed Quiz</h1></div>  
+                <!-- <div class="col-sm-3"></div>   -->
+            <!-- </div> -->
+            <!-- <div class="row"> -->
+                <!-- <div class="col-sm-3"></div> -->
+                <div><p>This is a quiz about dog breeds. You will have 70 seconds to complete this quiz. Each incorrect answer will deduct 10 seconds from the timer. When you are ready, press the 'start quiz' button below.</p></div>
+                <!-- <div class="col-sm-3"></div> -->
+                <div>
+                    <button id="startQuiz">
+                        Start Quiz
+                    </button>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-sm-3"></div>
-                <div class="col-sm-6"><p>This is a quiz about dog breeds. You will have 70 seconds to complete this quiz. Each incorrect answer will deduct 10 seconds from the timer. When you are ready, press the 'start quiz' button below.</p></div>
-                <div class="col-sm-3"></div>
-            </div>
-            
+
         </section>
+            <div class="col-sm-3"></div>
+        </div>
     </main>
 
 
