@@ -6,6 +6,48 @@
     color: whitesmoke;
 }
 
+#question1 {
+    text-align: center;
+    margin: 50px 55px 10px 10px;
+    background-color: rgba(255,20,203,.8);
+    border: 2px solid purple;
+    color: whitesmoke;
+}
+
+#question2 {
+    text-align: center;
+    margin: 50px 55px 10px 10px;
+    background-color: rgba(255,20,203,.8);
+    border: 2px solid purple;
+    color: whitesmoke;
+}
+
+#question3 {
+    text-align: center;
+    margin: 50px 55px 10px 10px;
+    background-color: rgba(255,20,203,.8);
+    border: 2px solid purple;
+    color: whitesmoke;
+}
+
+#question4 {
+    text-align: center;
+    margin: 50px 55px 10px 10px;
+    background-color: rgba(255,20,203,.8);
+    border: 2px solid purple;
+    color: whitesmoke;
+}
+
+#finalScore {
+    text-align: center;
+    margin: 50px 55px 10px 10px;
+    background-color: rgba(255,20,203,.8);
+    border: 2px solid purple;
+    color: whitesmoke;
+}
+
+
+
 #startQuiz {
     background-color: rgba(255, 192, 203, 1);
     border: 2px solid purple;
