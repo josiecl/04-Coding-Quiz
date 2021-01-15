@@ -1,6 +1,4 @@
-// var questionNo = document.querySelector("#questions");
-// var quizBox = document.querySelector("#quiz");
-// var timerCountdown = document.querySelector("timer");
+// various variables
 var button0 = document.querySelector("#startQuiz");
 var intro = document.querySelector("#intro");
 var correct = document.querySelector("#correct");
@@ -14,6 +12,7 @@ var finalScore = document.querySelector("#finalScore");
 
 var endTime = document.querySelector("#endTime");
 
+// Variables for buttons and questions
 var button1 = document.querySelector("#button1");
 var button2 = document.querySelector("#button2");
 var button3 = document.querySelector("#button3");
@@ -39,10 +38,10 @@ incorrect.setAttribute("style", "display:none");
 
 
 button0.addEventListener("click", function(){
+    // Timer starts
     timerGo();
     // Hide the intro
     intro.setAttribute("style", "display:none");
-    // Timer starts
     // Show first question
     question1.setAttribute("style", "display:block");
 });
