@@ -5,33 +5,38 @@ var button0 = document.querySelector("#startQuiz");
 var intro = document.querySelector("#intro");
 
 var timer = document.querySelector("#timer");
-var timerText = 70;
+var timerText = 50;
 var countdown;
 
 var finalScore = document.querySelector("#finalScore");
+
+var endTime = document.querySelector("#endTime");
 
 var button1 = document.querySelector("#button1");
 var button2 = document.querySelector("#button2");
 var button3 = document.querySelector("#button3");
 var button4 = document.querySelector("#button4");
+var button5 = document.querySelector("#button4");
 var question1 = document.querySelector("#question1");
 var question2 = document.querySelector("#question2");
 var question3 = document.querySelector("#question3");
 var question4 = document.querySelector("#question4");
+var question5 = document.querySelector("#question5");
 
 intro.setAttribute("style", "display:block");
 question1.setAttribute("style", "display:none");
 question2.setAttribute("style", "display:none");
 question3.setAttribute("style", "display:none");
 question4.setAttribute("style", "display:none");
+question5.setAttribute("style", "display:none");
 finalScore.setAttribute("style", "display:none");
 
 
 button0.addEventListener("click", function(){
+    timerGo();
     // Hide the intro
     intro.setAttribute("style", "display:none");
     // Timer starts
-    timerGo();
     // Show first question
     question1.setAttribute("style", "display:block");
 });
@@ -53,7 +58,15 @@ button3.addEventListener("click", function(){
 
 button4.addEventListener("click", function(){
     question4.setAttribute("style", "display:none");
+    question5.setAttribute("style", "dispay:block");
+});
+
+
+button5.addEventListener("click", function(){
+    question5.setAttribute("style", "display:none");
+    clearInterval(countdown);
     finalScore.setAttribute("style", "dispay:block");
+    finalScore.textContent = "Your final score is: " + timerText;
 });
 
 function timerGo() {
@@ -63,9 +76,25 @@ function timerGo() {
         if (timerText <= 0) {
             clearInterval(countdown);
             timer.textContent = "Time is 0; out of time!"
-            finalScore();
+            question1.setAttribute("style", "display:none");
+            question2.setAttribute("style", "display:none");
+            question3.setAttribute("style", "display:none");
+            question4.setAttribute("style", "display:none");
+            question5.setAttribute("style", "display:none");
+            finalScore.setAttribute("style", "display:block");
+            
+            finalScore.textContent = "Your final score is: " + timerText;
         }
     }, 1000)
+}
+
+function wrongAns() {
+    timer.textContent = "Time Left: " + timerText + "seconds";
+    timerText -= 10;
+    if (timerText = 0) {
+        clearInterval(countdown);
+        timer.textContent = "Time is 0; out of time!"
+    }
 }
 
 // var questions = [
