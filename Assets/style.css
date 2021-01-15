@@ -6,6 +6,13 @@
     color: whitesmoke;
 }
 
+#rw {
+    text-align: center;
+    background-color: rgba(255,20,203,.8);
+
+    color: whitesmoke;
+}
+
 #question1 {
     text-align: center;
     margin: 50px 55px 10px 10px;
