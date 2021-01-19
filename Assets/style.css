@@ -13,6 +13,12 @@
     color: whitesmoke;
 }
 
+.choice {
+    margin: 5px;
+    background-color: rgba(255, 192, 203, 1);
+    border: 2px solid rgba(255, 130, 150, 1);
+}
+
 #question1 {
     text-align: center;
     margin: 50px 55px 10px 10px;

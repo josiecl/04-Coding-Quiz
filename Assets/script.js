@@ -13,22 +13,13 @@ var finalScore = document.querySelector("#finalScore");
 
 var endTime = document.querySelector("#endTime");
 
-// Variables for buttons and questions
-var button1 = document.querySelector("#button1");
-var button2 = document.querySelector("#button2");
-var button3 = document.querySelector("#button3");
-var button4 = document.querySelector("#button4");
-var button5 = document.querySelector("#button4");
 var question1 = document.querySelector("#question1");
-var question2 = document.querySelector("#question2");
-var question3 = document.querySelector("#question3");
-var question4 = document.querySelector("#question4");
-var question5 = document.querySelector("#question5");
 
-var ans1 = document.querySelector("#ans1");
+// Variables for buttons and questions
+
 
 intro.setAttribute("style", "display:block");
-// question1.setAttribute("style", "display:none");
+question1.setAttribute("style", "display:none");
 // question2.setAttribute("style", "display:none");
 // question3.setAttribute("style", "display:none");
 // question4.setAttribute("style", "display:none");
@@ -44,40 +35,10 @@ button0.addEventListener("click", function(){
     // Hide the intro
     intro.setAttribute("style", "display:none");
     // Show first question
-    firstQuestion();
+    getQuestion();
 
 });
 
-
-// button1.addEventListener("click", function(){
-//     if(ans1.clicked===true) {
-//         question1.setAttribute("style", "display:none");
-//         question2.setAttribute("style", "dispay:block");
-//         correct.setAttribute("style", "display:block");
-//     }
-//     else {
-//         question1.setAttribute("style", "display:none");
-//         question2.setAttribute("style", "dispay:block");
-//         incorrect.setAttribute("style", "display:block");
-//         wrongAns();
-//     }
-
-// });
-
-// button2.addEventListener("click", function(){
-//     question2.setAttribute("style", "display:none");
-//     question3.setAttribute("style", "dispay:block");
-// });
-
-// button3.addEventListener("click", function(){
-//     question3.setAttribute("style", "display:none");
-//     question4.setAttribute("style", "dispay:block");
-// });
-
-// button4.addEventListener("click", function(){
-//     question4.setAttribute("style", "display:none");
-//     question5.setAttribute("style", "dispay:block");
-// });
 
 
 // // Final score display
@@ -96,16 +57,24 @@ function timerGo() {
         timerText--;
         timer.textContent = "Time Left: " + timerText + " seconds";
         if (timerText <= 0) {
-            clearInterval(countdown);
-            timer.textContent = "Time is 0; out of time!"
-            question1.setAttribute("style", "display:none");
-            question2.setAttribute("style", "display:none");
-            question3.setAttribute("style", "display:none");
-            question4.setAttribute("style", "display:none");
-            question5.setAttribute("style", "display:none");
-            finalScore.setAttribute("style", "display:block");
+            // clearInterval(countdown);
+            // timer.textContent = "Time is 0; out of time!"
+            // question1.setAttribute("style", "display:none");
+            // question2.setAttribute("style", "display:none");
+            // question3.setAttribute("style", "display:none");
+            // question4.setAttribute("style", "display:none");
+            // question5.setAttribute("style", "display:none");
+            // finalScore.setAttribute("style", "display:block");
             
+            // finalScore.textContent = "Your final score is: " + timerText;
+
+            question1.setAttribute("style", "display:none");
+            correct.setAttribute("style", "display:none");
+            incorrect.setAttribute("style", "display:none");
+            question1.innerHTML = "";
+            clearInterval(countdown);
             finalScore.textContent = "Your final score is: " + timerText;
+            finalScore.setAttribute("style", "display:block");
         }
     }, 1000)
 }
@@ -167,7 +136,7 @@ var questions = [
     {
         question: "Why are mixed breed dogs typically better to adopt than purebred dogs?",
         answers: [
-            "Purebreeds are expensive",
+            "Purebreeds are expensive", 
             "Purebreeds are more prone to health conditions",
             "Mixed breeds are nicer",
             "Purebreds are more likely to bite people"
@@ -179,8 +148,9 @@ var questions = [
 var currentQuestionIndex = 0;
 
 // rename later
-function firstQuestion() {
+function getQuestion() {
     question1.innerHTML = "";
+    question1.setAttribute("style", "display:block");
     var currentQuestion = questions[currentQuestionIndex];
     var questionTitle = document.createElement("h3");
     questionTitle.textContent = currentQuestion.question;
@@ -213,30 +183,18 @@ function clickButton() {
 
     currentQuestionIndex++;
 
+    // End result keeps showing 10 seconds earlier than timer; ask how to fix
     if (currentQuestionIndex === questions.length) {
+        question1.setAttribute("style", "display:none");
         correct.setAttribute("style", "display:none");
         incorrect.setAttribute("style", "display:none");
         question1.innerHTML = "";
         clearInterval(countdown);
-        finalScore.setAttribute("style", "display:block");
         finalScore.textContent = "Your final score is: " + timerText;
+        finalScore.setAttribute("style", "display:block");
     }
     else {
-        firstQuestion();
+        getQuestion();
     }
 }
 
-// var answerOptions = document.querySelector("#answers");
-// var questions = document.querySelector("#question");
-// var start = document.querySelector("#startQuiz")
-
-
-// start.addEventListener("click", function(event) {
-//     event.preventDefault();
-//     introEl.classList.add("hide");
-//     quizTime.classList.remove("hide");
-
-//     showQuestion(questions.shift());
-
-//     timerCountdown();
-// })
