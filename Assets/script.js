@@ -4,6 +4,8 @@ var button0 = document.querySelector("#startQuiz");
 var intro = document.querySelector("#intro");
 var correct = document.querySelector("#correct");
 var incorrect = document.querySelector("#incorrect");
+var initials = document.querySelector("#initials");
+var finalTime = document.querySelector("#finalTime");
 
 var timer = document.querySelector("#timer");
 var timerText = 50;
@@ -20,13 +22,11 @@ var question1 = document.querySelector("#question1");
 
 intro.setAttribute("style", "display:block");
 question1.setAttribute("style", "display:none");
-// question2.setAttribute("style", "display:none");
-// question3.setAttribute("style", "display:none");
-// question4.setAttribute("style", "display:none");
-// question5.setAttribute("style", "display:none");
 finalScore.setAttribute("style", "display:none");
 correct.setAttribute("style", "display:none");
 incorrect.setAttribute("style", "display:none");
+initials.setAttribute("style", "display:none");
+
 
 
 button0.addEventListener("click", function(){
@@ -57,16 +57,6 @@ function timerGo() {
         timerText--;
         timer.textContent = "Time Left: " + timerText + " seconds";
         if (timerText <= 0) {
-            // clearInterval(countdown);
-            // timer.textContent = "Time is 0; out of time!"
-            // question1.setAttribute("style", "display:none");
-            // question2.setAttribute("style", "display:none");
-            // question3.setAttribute("style", "display:none");
-            // question4.setAttribute("style", "display:none");
-            // question5.setAttribute("style", "display:none");
-            // finalScore.setAttribute("style", "display:block");
-            
-            // finalScore.textContent = "Your final score is: " + timerText;
 
             question1.setAttribute("style", "display:none");
             correct.setAttribute("style", "display:none");
@@ -147,7 +137,7 @@ var questions = [
 
 var currentQuestionIndex = 0;
 
-// rename later
+
 function getQuestion() {
     question1.innerHTML = "";
     question1.setAttribute("style", "display:block");
@@ -190,8 +180,10 @@ function clickButton() {
         incorrect.setAttribute("style", "display:none");
         question1.innerHTML = "";
         clearInterval(countdown);
-        finalScore.textContent = "Your final score is: " + timerText;
+        // finalScore.textContent = "Your final score is: " + timerText + ". Input initials below.";
         finalScore.setAttribute("style", "display:block");
+        initials.setAttribute("style", "display:block");
+        finalTime.textContent = timerText + " seconds";
     }
     else {
         getQuestion();

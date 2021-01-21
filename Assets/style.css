@@ -13,6 +13,7 @@
     color: whitesmoke;
 }
 
+
 .choice {
     margin: 5px;
     background-color: rgba(255, 192, 203, 1);
@@ -27,43 +28,18 @@
     color: whitesmoke;
 }
 
-#question2 {
-    text-align: center;
-    margin: 50px 55px 10px 10px;
-    background-color: rgba(255,20,203,.8);
-    border: 2px solid purple;
-    color: whitesmoke;
-}
 
-#question3 {
-    text-align: center;
-    margin: 50px 55px 10px 10px;
-    background-color: rgba(255,20,203,.8);
-    border: 2px solid purple;
-    color: whitesmoke;
-}
-
-#question4 {
-    text-align: center;
-    margin: 50px 55px 10px 10px;
-    background-color: rgba(255,20,203,.8);
-    border: 2px solid purple;
-    color: whitesmoke;
-}
-
-#question5 {
-    text-align: center;
-    margin: 50px 55px 10px 10px;
-    background-color: rgba(255,20,203,.8);
-    border: 2px solid purple;
-    color: whitesmoke;
-}
 
 #finalScore {
     text-align: center;
     margin: 50px 55px 10px 10px;
     background-color: rgba(255,20,203,.8);
     border: 2px solid purple;
+    color: whitesmoke;
+}
+
+#finalTime {
+    font-size: 25px;
     color: whitesmoke;
 }
 
