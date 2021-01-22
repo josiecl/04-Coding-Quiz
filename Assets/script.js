@@ -42,16 +42,76 @@ button0.addEventListener("click", function(){
 
 submitInitials.addEventListener("click", function(){
     var initialsValue = initials.value;
-    var highScores = JSON.parse(localStorage.getItem("highScore"));
-    // for (var i = 0; i < highScores.length; i++) {
-    //     if (timerText > highScores[i].score) {
 
-    //     }
-    // }
-    scoreOBJ = {
+    //make sure array exists
+    if (localStorage.getItem("highScore")){
+        var highScores = JSON.parse(localStorage.getItem("highScore"));
+        highScores.sort();
+    }
+    else{
+        var highScores = [];
+        highScores.sort();
+    }
+
+// // function compare(a, b) {
+//     //     // Use toUpperCase() to ignore character casing
+//     //     const initialsA = a.initials.toUpperCase();
+//     //     const initialsB = b.initials.toUpperCase();
+      
+//     //     let comparison = 0;
+//     //     if (initialsA > initialsB) {
+//     //       comparison = 1;
+//     //     } else if (initialsA < initialsB) {
+//     //       comparison = -1;
+//     //     }
+//     //     return comparis    on;
+//     //   }
+      
+      
+
+//     // });
+
+
+
+//     function compareValues(key, order = 'asc') {
+//         return function innerSort(a, b) {
+//           if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+//             // property doesn't exist on either object
+//             return 0;
+//           }
+      
+//           const varA = (typeof a[key] === 'string')
+//             ? a[key].toUpperCase() : a[key];
+//           const varB = (typeof b[key] === 'string')
+//             ? b[key].toUpperCase() : b[key];
+      
+//           let comparison = 0;
+//           if (varA > varB) {
+//             comparison = 1;
+//           } else if (varA < varB) {
+//             comparison = -1;
+//           }
+//           return (
+//             (order === 'desc') ? (comparison * -1) : comparison
+//           );
+//         };
+//       }
+
+//       highScores.sort(compareValues('initials', 'desc'));
+
+
+
+    var scoreOBJ = {
         initials:initialsValue,
         score:timerText
     }
+
+    highScores.push(scoreOBJ);
+    localStorage.setItem("highScore", JSON.stringify(highScores));
+    highScores.sort();
+    
+    //goto highscore page
+    window.location.href = "highscores.html";
     
 });
 
