@@ -198,8 +198,6 @@ function clickButton() {
     // Out of questions loop
     if (currentQuestionIndex === questions.length) {
         question1.setAttribute("style", "display:none");
-        correct.setAttribute("style", "display:none");
-        incorrect.setAttribute("style", "display:none");
         question1.innerHTML = "";
         clearInterval(countdown);
 
