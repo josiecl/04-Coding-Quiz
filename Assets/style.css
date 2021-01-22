@@ -25,10 +25,6 @@
 
 }
 
-#highscoresTitle {
-    text-align: center;
-}
-
 #question1 {
     text-align: center;
     margin: 50px 55px 10px 10px;
@@ -54,10 +50,35 @@
 
 #highscoresTitle {
     text-align: center;
-    margin: 50px 55px 10px 10px;
+    margin: 10px;
+    background-color: rgba(18, 110, 150, .8);
+    
+    border: 2px solid purple;
+    color: whitesmoke;
+}
+
+#highscoresContainer {
+    text-align: center;
     background-color: rgba(255,20,203,.8);
     border: 2px solid purple;
     color: whitesmoke;
+    font-size: 30px;
+    
+}
+
+#initials {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+}
+
+#noTime {
+    margin: 50px;
+    text-align: center;
+    background-color: rgba(255,20,203,.8);
+    border: 2px solid purple;
+    color: whitesmoke;
+    font-size: 30px;
 }
 
 #startQuiz {

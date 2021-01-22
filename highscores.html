@@ -21,20 +21,33 @@
     <main class="container">
         <div class="row">
             <div class="col-sm-3"></div>
-        </div>
-        <div class="row">
-            <h1 class="col-sm-6" id="highscoresTitle">High Scores:</h1>
-        </div>
-        <div class="row">
-            <h1 class="col-sm-3" id="highscoresContainer"></h1>
+            <div class="col-sm-6">
+                <h1 id="highscoresTitle">High Scores:</h1>
+                <h1 id="highscoresContainer"></h1>
+            </div>
+            <div class="col-sm-3"></div>
         </div>
     </main>
+    <!-- <main class="container">
+        <div class="row">
+            <div class="col-sm-3"></div>
+        </div>
+        <div class="row">
+            
+        </div>
+        <div class="row">
+            <div class="col-sm-3"></div>
+        </div>
+    </main> -->
+
 
     <script>
+
+        // Function to bring high scores to page and list them
         function showHighScore(){
             var highscoresContainer = document.querySelector("#highscoresContainer");
             var highScores = JSON.parse(localStorage.getItem("highScore"));
-            highScores.sort();
+            highScores.sort(compareValues('score','desc'));
             for (var i = 0; i < highScores.length; i++) {
                 var newScore = document.createElement("p");
                 newScore.innerHTML = highScores[i].initials + ": " + highScores[i].score;
@@ -42,6 +55,8 @@
             } 
             
         }
+
+        // Function to make a descending/ascending order, to later be used to sort high scores
         function compareValues(key, order = 'asc') {
             return function innerSort(a, b) {
                 if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
@@ -63,9 +78,8 @@
                 );
             };
         }
-        // highScores = JSON.parse(localStorage["highScores"]);
-        // highScores.sort(compareValues('score', 'desc'));
 
+        // Function is called
         showHighScore();
     </script>
 

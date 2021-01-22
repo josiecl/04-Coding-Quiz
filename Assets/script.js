@@ -7,26 +7,25 @@ var incorrect = document.querySelector("#incorrect");
 var initials = document.querySelector("#initials");
 var finalTime = document.querySelector("#finalTime");
 var submitInitials = document.querySelector("#submitInitials");
+var noTime = document.querySelector("#noTime");
 
+// Timer variables
 var timer = document.querySelector("#timer");
 var timerText = 50;
 var countdown;
 
 var finalScore = document.querySelector("#finalScore");
-
 var endTime = document.querySelector("#endTime");
-
 var question1 = document.querySelector("#question1");
 
-// Variables for buttons and questions
-
-
+// Sets intro to display, and everything else to invisible
 intro.setAttribute("style", "display:block");
 question1.setAttribute("style", "display:none");
 finalScore.setAttribute("style", "display:none");
 correct.setAttribute("style", "display:none");
 incorrect.setAttribute("style", "display:none");
 initials.setAttribute("style", "display:none");
+noTime.setAttribute("style", "display:none");
 
 
 
@@ -43,7 +42,7 @@ button0.addEventListener("click", function(){
 submitInitials.addEventListener("click", function(){
     var initialsValue = initials.value;
 
-    //make sure array exists
+    // Check if array exists
     if (localStorage.getItem("highScore")){
         var highScores = JSON.parse(localStorage.getItem("highScore"));
         highScores.sort();
@@ -52,54 +51,6 @@ submitInitials.addEventListener("click", function(){
         var highScores = [];
         highScores.sort();
     }
-
-// // function compare(a, b) {
-//     //     // Use toUpperCase() to ignore character casing
-//     //     const initialsA = a.initials.toUpperCase();
-//     //     const initialsB = b.initials.toUpperCase();
-      
-//     //     let comparison = 0;
-//     //     if (initialsA > initialsB) {
-//     //       comparison = 1;
-//     //     } else if (initialsA < initialsB) {
-//     //       comparison = -1;
-//     //     }
-//     //     return comparis    on;
-//     //   }
-      
-      
-
-//     // });
-
-
-
-//     function compareValues(key, order = 'asc') {
-//         return function innerSort(a, b) {
-//           if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
-//             // property doesn't exist on either object
-//             return 0;
-//           }
-      
-//           const varA = (typeof a[key] === 'string')
-//             ? a[key].toUpperCase() : a[key];
-//           const varB = (typeof b[key] === 'string')
-//             ? b[key].toUpperCase() : b[key];
-      
-//           let comparison = 0;
-//           if (varA > varB) {
-//             comparison = 1;
-//           } else if (varA < varB) {
-//             comparison = -1;
-//           }
-//           return (
-//             (order === 'desc') ? (comparison * -1) : comparison
-//           );
-//         };
-//       }
-
-//       highScores.sort(compareValues('initials', 'desc'));
-
-
 
     var scoreOBJ = {
         initials:initialsValue,
@@ -110,51 +61,43 @@ submitInitials.addEventListener("click", function(){
     localStorage.setItem("highScore", JSON.stringify(highScores));
     highScores.sort();
     
-    //goto highscore page
+    // Go to highscore page
     window.location.href = "highscores.html";
     
 });
 
-
-
-
-// // Final score display
-// button5.addEventListener("click", function(){
-//     correct.setAttribute("style", "display:none");
-//     incorrect.setAttribute("style", "display:none");
-//     question5.setAttribute("style", "display:none");
-//     clearInterval(countdown);
-//     finalScore.setAttribute("style", "dispay:block");
-//     finalScore.textContent = "Your final score is: " + timerText;
-// });
 
 // Timer function
 function timerGo() {
     countdown = setInterval(function() {
         timerText--;
         timer.textContent = "Time Left: " + timerText + " seconds";
-        if (timerText <= 0) {
 
+        // If statement for if the timer reaches 0 or below
+        if (timerText <= 0) {
             question1.setAttribute("style", "display:none");
             correct.setAttribute("style", "display:none");
             incorrect.setAttribute("style", "display:none");
             question1.innerHTML = "";
             clearInterval(countdown);
-            finalScore.textContent = "Your final score is: " + timerText;
-            finalScore.setAttribute("style", "display:block");
+            noTime.setAttribute("style", "display:block");
+            timer.textContent = "Out of time!";
         }
     }, 1000)
 }
 
+// Function for wrong answer 
 function wrongAns() {
     timer.textContent = "Time Left: " + timerText + "seconds";
     timerText -= 10;
-    if (timerText = 0) {
+    if (timerText <= 0) {
         clearInterval(countdown);
-        timer.textContent = "Time is 0; out of time!"
+        timer.textContent = "Out of time!";
+        noTime.setAttribute("style", "display:block");
     }
 }
 
+// Array for questions
 var questions = [
     {
         question: "Which of these breeds is the tallest?",
@@ -214,7 +157,7 @@ var questions = [
 
 var currentQuestionIndex = 0;
 
-
+// Function to get the questions and loop through them
 function getQuestion() {
     question1.innerHTML = "";
     question1.setAttribute("style", "display:block");
@@ -236,6 +179,8 @@ function getQuestion() {
 
 }
 
+// Function to start quiz
+
 function clickButton() {
     if (this.value !== questions[currentQuestionIndex].correctAnswer) {
         timerText -= 10;
@@ -250,17 +195,26 @@ function clickButton() {
 
     currentQuestionIndex++;
 
-    // End result keeps showing 10 seconds earlier than timer; ask how to fix
+    // Out of questions loop
     if (currentQuestionIndex === questions.length) {
         question1.setAttribute("style", "display:none");
         correct.setAttribute("style", "display:none");
         incorrect.setAttribute("style", "display:none");
         question1.innerHTML = "";
         clearInterval(countdown);
-        // finalScore.textContent = "Your final score is: " + timerText + ". Input initials below.";
-        finalScore.setAttribute("style", "display:block");
-        initials.setAttribute("style", "display:block");
-        finalTime.textContent = timerText + " seconds";
+
+        // If loop for timer; when timer is greater than 0, initials can be input. If it goes below 0, no input field appears
+        if (timerText > 0) {
+            finalScore.setAttribute("style", "display:block");
+            initials.setAttribute("style", "display:block");
+            finalTime.textContent = timerText + " seconds";
+            timer.textContent = "Complete!";
+        }
+        else {
+            noTime.setAttribute("style", "display:block");
+            timer.textContent = "Out of time!";
+        }
+        
     }
     else {
         getQuestion();
