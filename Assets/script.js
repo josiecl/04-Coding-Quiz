@@ -6,6 +6,7 @@ var correct = document.querySelector("#correct");
 var incorrect = document.querySelector("#incorrect");
 var initials = document.querySelector("#initials");
 var finalTime = document.querySelector("#finalTime");
+var submitInitials = document.querySelector("#submitInitials");
 
 var timer = document.querySelector("#timer");
 var timerText = 50;
@@ -38,6 +39,22 @@ button0.addEventListener("click", function(){
     getQuestion();
 
 });
+
+submitInitials.addEventListener("click", function(){
+    var initialsValue = initials.value;
+    var highScores = JSON.parse(localStorage.getItem("highScore"));
+    // for (var i = 0; i < highScores.length; i++) {
+    //     if (timerText > highScores[i].score) {
+
+    //     }
+    // }
+    scoreOBJ = {
+        initials:initialsValue,
+        score:timerText
+    }
+    
+});
+
 
 
 

@@ -17,7 +17,12 @@
 .choice {
     margin: 5px;
     background-color: rgba(255, 192, 203, 1);
-    border: 2px solid rgba(255, 130, 150, 1);
+    border: 2px solid rgba(255, 110, 150, 1);
+    display: block;
+    margin: 15px auto;
+    height: 55px;
+    min-width: 250px;
+
 }
 
 #question1 {
