@@ -21,3 +21,4 @@ I am very happy with the end result website. The quiz works as it should, and I 
 ![screenshot 5](https://user-images.githubusercontent.com/74507818/105541875-12918380-5cbe-11eb-8f70-905d583eecb0.png)
 
 # Link to deployed site
+[Deployed Site](https://josiecl.github.io/04-Coding-Quiz/)
