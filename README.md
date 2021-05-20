@@ -14,10 +14,10 @@ I ran into several challenges while making this quiz. First and foremost, I was 
 I am very happy with the end result website. The quiz works as it should, and I think the design is very fun. I had a lot of fun with the CSS, and learned a lot more about Javascript. I'm proud of this website. It was a very cool assignment, and I'm glad to have been able to complete it. 
 
 # Links to screenshots of site
-[!screenshot 1](https://user-images.githubusercontent.com/74507818/105541859-0e656600-5cbe-11eb-9084-97e1b5d20cae.png)
-[!screenshot 2](https://user-images.githubusercontent.com/74507818/105541865-0f969300-5cbe-11eb-9639-13307e795cc7.png)
-[!screenshot 3](https://user-images.githubusercontent.com/74507818/105541867-10c7c000-5cbe-11eb-9b1c-e01a6518318f.png)
-[!screenshot 4](https://user-images.githubusercontent.com/74507818/105541869-11605680-5cbe-11eb-9015-c6cc373177ab.png)
-[!screenshot 5](https://user-images.githubusercontent.com/74507818/105541875-12918380-5cbe-11eb-8f70-905d583eecb0.png)
+![screenshot 1](https://user-images.githubusercontent.com/74507818/105541859-0e656600-5cbe-11eb-9084-97e1b5d20cae.png)
+![screenshot 2](https://user-images.githubusercontent.com/74507818/105541865-0f969300-5cbe-11eb-9639-13307e795cc7.png)
+![screenshot 3](https://user-images.githubusercontent.com/74507818/105541867-10c7c000-5cbe-11eb-9b1c-e01a6518318f.png)
+![screenshot 4](https://user-images.githubusercontent.com/74507818/105541869-11605680-5cbe-11eb-9015-c6cc373177ab.png)
+![screenshot 5](https://user-images.githubusercontent.com/74507818/105541875-12918380-5cbe-11eb-8f70-905d583eecb0.png)
 
 # Link to deployed site
